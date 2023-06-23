@@ -10,23 +10,27 @@ class ParallelArray
         string[] lastName = { "Smith", "Seger", "Mathers", "Solo", "Bush" };
         string[] status = { "freshman", "sophomore", "senior", "junior", "freshman" };
 
+        bool isValidID = false;
         Write("Please enter a Student ID >> ");
         int userInput = Convert.ToInt32(Console.ReadLine());
+        int i;
 
-        for (int i = 0; i < studentID.Length; i++)
+        for (i = 0; i < studentID.Length; i++)
         {
             if (userInput == studentID[i])
             {
-                WriteLine("The students first name is {0}", firstName[i]);
-                WriteLine("The students last name is {0}", lastName[i]);
-                WriteLine("The student is a {0}", status[i]);
-                break;
-            }
-            else
-            {
-                WriteLine("Sorry - Student Not Found");
+                isValidID = true;
                 break;
             }
         }
+        
+        if (isValidID == true)
+        {
+            WriteLine("The students first name is {0}", firstName[i]);
+            WriteLine("The students last name is {0}", lastName[i]);
+            WriteLine("The student is a {0}", status[i]);
+        }
+        else
+            WriteLine("Sorry - student not found");
     }
 }
